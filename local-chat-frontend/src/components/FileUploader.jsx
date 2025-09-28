@@ -1,3 +1,31 @@
+// // local-chat-frontend/src/components/FileUploader.jsx
+// import React from "react";
+// import { useDropzone } from "react-dropzone";
+
+// const FileUploader = ({ onUpload }) => {
+//   const { getRootProps, getInputProps } = useDropzone({
+//     multiple: false,
+//     onDrop: (acceptedFiles) => {
+//       if (acceptedFiles.length > 0) {
+//         onUpload(acceptedFiles[0]);
+//       }
+//     },
+//   });
+
+//   return (
+//     <div
+//       {...getRootProps()}
+//       className="border-dashed border-2 border-gray-400 p-4 text-center rounded mb-4 cursor-pointer"
+//     >
+//       <input {...getInputProps()} />
+//       <p>Drag & drop a PDF or image here, or click to select file</p>
+//     </div>
+//   );
+// };
+
+// export default FileUploader;
+
+// local-chat-frontend/src/components/FileUploader.jsx
 import React from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -14,12 +42,13 @@ const FileUploader = ({ onUpload }) => {
   return (
     <div
       {...getRootProps()}
-      className="border-dashed border-2 border-gray-400 p-4 text-center rounded mb-4 cursor-pointer"
+      className="border-2 border-dashed border-gray-400 p-4 text-center rounded-lg mb-4 cursor-pointer hover:bg-gray-50 transition"
     >
       <input {...getInputProps()} />
-      <p>Drag & drop a PDF or image here, or click to select file</p>
+      <p className="text-gray-600">Drag & drop a PDF or image here, or click to select</p>
     </div>
   );
 };
 
 export default FileUploader;
+
