@@ -47,6 +47,8 @@ app.add_middleware(
 # configure via env or fallback to defaults
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "deepseek-coder:6.7b")
+# OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "starcoder2:3b")
+
 CHAT_ENDPOINT = f"{OLLAMA_HOST}/api/chat"
 GENERATE_ENDPOINT = f"{OLLAMA_HOST}/api/generate"
 

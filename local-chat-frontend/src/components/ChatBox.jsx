@@ -12,19 +12,18 @@ const ChatBox = ({ messages, onSend }) => {
     setInput("");
   };
 
-  // Scroll to bottom when new messages are added
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-full border rounded-md p-2 flex-1 overflow-hidden">
-      <div className="flex-1 overflow-y-auto p-2 space-y-2">
+    <div className="flex flex-col flex-1 border rounded-lg overflow-hidden shadow-sm bg-gray-50">
+      <div className="flex-1 p-4 overflow-y-auto space-y-3">
         {messages.map((m, idx) => (
           <div key={idx} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
             <div
-              className={`max-w-xs break-words p-3 rounded-lg shadow 
-                ${m.role === "user" ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-900"}`}
+              className={`max-w-[70%] p-3 rounded-2xl shadow-md break-words
+                ${m.role === "user" ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white" : "bg-white text-gray-900 border border-gray-200"}`}
             >
               {m.content}
             </div>
@@ -33,17 +32,17 @@ const ChatBox = ({ messages, onSend }) => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="flex border-t p-2">
+      <div className="flex border-t border-gray-300 p-2 bg-white">
         <input
           type="text"
-          className="flex-1 border rounded-l-lg p-2 focus:outline-none"
+          className="flex-1 border rounded-l-2xl p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          placeholder="Type your message..."
+          placeholder="Type a message..."
         />
         <button
-          className="bg-blue-500 text-white px-4 rounded-r-lg hover:bg-blue-600"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-5 rounded-r-2xl font-semibold"
           onClick={handleSend}
         >
           Send
@@ -54,3 +53,4 @@ const ChatBox = ({ messages, onSend }) => {
 };
 
 export default ChatBox;
+
